@@ -1,0 +1,21 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/transcribed_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Waiting for input..."
+            android:textSize="16sp"
+            android:padding="10dp" />
+    </ScrollView>
+</LinearLayout>

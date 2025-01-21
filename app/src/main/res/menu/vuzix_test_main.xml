@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VuzixTest">
+
+    <item
+        android:id="@+id/item1"
+        android:title="HelloWorld"
+        android:onClick="showHello"
+        tools:ignore="MissingConstraints" />
+
+    <item
+        android:id="@+id/item2"
+        android:title="Vuzix"
+        android:onClick="showVuzix"
+        tools:ignore="MissingConstraints" />
+
+    <item
+        android:id="@+id/item3"
+        android:title="Blade2"
+        android:onClick="showBlade2"
+        tools:ignore="MissingConstraints" />
+
+</menu>
