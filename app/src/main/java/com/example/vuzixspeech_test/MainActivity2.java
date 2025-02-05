@@ -1,48 +1,69 @@
 package com.example.vuzixspeech_test;
 
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import java.io.File;
-import android.Manifest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+import java.io.IOException;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    private static int MICROPHONE_PERMISSION_CODE = 200;
-    MediaRecorder mediaRecorder;
-    MediaPlayer mediaPlayer;
-    FirebaseDatabase db;
-    MediaController mediaController;
-    DatabaseReference reference;
-    StorageReference storageReference;
+    private static final int MICROPHONE_PERMISSION_CODE = 200;
+    private static final String TRANSCRIPTION_API_URL = "https://vuzixaudio-default-rtdb.firebaseio.com/"; // Replace with your transcription API URL
+    private MediaRecorder mediaRecorder;
+    private MediaPlayer mediaPlayer;
+    private FirebaseDatabase db;
+    private MediaController mediaController;
+    private DatabaseReference reference;
+    private StorageReference storageReference;
     private String audioFilePath;
+    private TextView textView;
+    private Button scanButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        textView = findViewById(R.id.textView);
+        scanButton = findViewById(R.id.button5);
+        scanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, ScannerActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Initialize Firebase Storage reference
         storageReference = FirebaseStorage.getInstance().getReference();
-
 
         // Set audio file path
         audioFilePath = getRecordingFilePath();
@@ -50,6 +71,9 @@ public class MainActivity2 extends AppCompatActivity {
         if (isMicrophonePresent()) {
             getMicrophonePermission();
         }
+
+
+
     }
 
     public void btnRecordPressed(View v) {
@@ -61,7 +85,6 @@ public class MainActivity2 extends AppCompatActivity {
             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
             mediaRecorder.prepare();
             mediaRecorder.start();
-
             Toast.makeText(this, "Recording started", Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,11 +96,10 @@ public class MainActivity2 extends AppCompatActivity {
             mediaRecorder.stop();
             mediaRecorder.release();
             mediaRecorder = null;
-
             Toast.makeText(this, "Recording stopped", Toast.LENGTH_LONG).show();
 
-            // Upload the audio file to Firebase Storage
-            //uploadAudioToFirebase();
+            // Transcribe the audio
+            transcribeAudio();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,10 +111,16 @@ public class MainActivity2 extends AppCompatActivity {
             mediaPlayer.setDataSource(audioFilePath);
             mediaPlayer.prepare();
             mediaPlayer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void btnStoredPressed(View v) {
+        try {
             db = FirebaseDatabase.getInstance();
             reference = db.getReference("Records");
             reference.push().setValue(audioFilePath);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -103,10 +131,10 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     private void getMicrophonePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO)
                 == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(this, new String[]
-                    {Manifest.permission.RECORD_AUDIO}, MICROPHONE_PERMISSION_CODE);
+                    {android.Manifest.permission.RECORD_AUDIO}, MICROPHONE_PERMISSION_CODE);
         }
     }
 
@@ -117,30 +145,38 @@ public class MainActivity2 extends AppCompatActivity {
         return file.getPath();
     }
 
-//    private void uploadAudioToFirebase() {
-//        // Get reference to Firebase Storage location
-//        StorageReference audioRef = storageReference.child("audio/" + System.currentTimeMillis() + ".mp3");
-//
-//        // Get the audio file
-//        File audioFile = new File(audioFilePath);
-//
-//        // Upload the file
-//        audioRef.putFile(Uri.fromFile(audioFile))
-//                .addOnSuccessListener(taskSnapshot -> {
-//                    // Get the download URL and save it to Realtime Database
-//                    audioRef.getDownloadUrl().addOnSuccessListener(uri -> {
-////                        db = FirebaseDatabase.getInstance();
-////                        reference = db.getReference("Records");
-//
-//                        // Store the download URL in the database
-////                        reference.push().setValue(uri)
-////                                .addOnSuccessListener(aVoid -> Toast.makeText(MainActivity2.this, "Audio uploaded successfully", Toast.LENGTH_SHORT).show())
-////                                .addOnFailureListener(e -> Toast.makeText(MainActivity2.this, "Failed to upload audio to database", Toast.LENGTH_SHORT).show());
-//                    });
-//                })
-//                .addOnFailureListener(e -> {
-//                    Toast.makeText(this, "Failed to upload audio", Toast.LENGTH_SHORT).show();
-//                    e.printStackTrace();
-//                });
-//        }
+    private void transcribeAudio() {
+        OkHttpClient client = new OkHttpClient();
+        File audioFile = new File(audioFilePath);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("audio/mp3"), audioFile);
+
+        Request request = new Request.Builder()
+                .url(TRANSCRIPTION_API_URL)
+                .post(requestBody)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(() -> Toast.makeText(MainActivity2.this, "Failed to transcribe audio", Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String transcription = response.body().string();
+                    runOnUiThread(() -> {
+                        textView.setText(transcription);
+
+                        // Store the transcription in Firebase
+                        reference.push().setValue(transcription)
+                                .addOnSuccessListener(aVoid -> Toast.makeText(MainActivity2.this, "Transcription saved to Firebase", Toast.LENGTH_SHORT).show())
+                                .addOnFailureListener(e -> Toast.makeText(MainActivity2.this, "Failed to save transcription", Toast.LENGTH_SHORT).show());
+                    });
+                } else {
+                    runOnUiThread(() -> Toast.makeText(MainActivity2.this, "Error: " + response.message(), Toast.LENGTH_SHORT).show());
+                }
+            }
+        });
+    }
 }

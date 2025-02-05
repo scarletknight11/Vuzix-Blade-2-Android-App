@@ -12,4 +12,13 @@
     <string name="only_on_vuzix">Voice SDK only runs on Vuzix Smart Glasses w. Vuzix Speech SDK support</string>
     <string name="upgrade_vuzix">Please upgrade your Vuzix Smart Glasses to get all features</string>
     <string name="spoken_phrase_testing">Speak </string>
+    <string name="scan_to_fill">Scan to Fill</string>
+    <string name="fill_in_from_barcode">Fill-in From Barcode</string>
+    <string name="scan_now">Scan Now</string>
+    <string name="only_on_mseries">Barcode SDK only runs on Vuzix smart glasses</string>
+    <string name="no_data">No barcode found</string>
+    <string name="scan_barcode">Press any button to scan barcode</string>
+    <string name="no_permission">Camera permission is required for this app</string>
+    <string name="no_barcode_in_image">No barcode detected</string>
+
 </resources>

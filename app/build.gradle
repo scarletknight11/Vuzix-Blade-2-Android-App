@@ -48,7 +48,6 @@ android {
 }
 
 dependencies {
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
@@ -64,8 +63,12 @@ dependencies {
     implementation 'com.vuzix:companion-settings:1.0'
     implementation 'com.vuzix:connectivity-sdk:1.1'
     implementation 'com.vuzix:sdk-speechrecognitionservice:master-SNAPSHOT'
+    implementation 'com.vuzix:sdk-barcode:1.72'
+    implementation 'com.github.yuriy-budiyev:code-scanner:2.3.0'
     implementation 'com.google.gms:google-services:4.3.10' // Ensure correct version
     implementation platform('com.google.firebase:firebase-bom:33.7.0')
     implementation 'com.google.firebase:firebase-storage:20.1.1'
-
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.google.zxing:core:3.4.1'
+    implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
 }
