@@ -36,6 +36,8 @@
             </intent-filter>
             <meta-data android:name="com.vuzix.icon.tint" android:value="true" />
         </activity>
+        <!-- Scanner Activity -->
+        <activity android:name=".ScannerActivity" />
     </application>
 
 </manifest>

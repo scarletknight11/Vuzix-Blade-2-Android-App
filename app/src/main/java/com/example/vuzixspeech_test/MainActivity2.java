@@ -54,13 +54,6 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         textView = findViewById(R.id.textView);
         scanButton = findViewById(R.id.button5);
-        scanButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity2.this, ScannerActivity.class);
-                startActivity(intent);
-            }
-        });
 
         // Initialize Firebase Storage reference
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -71,9 +64,14 @@ public class MainActivity2 extends AppCompatActivity {
         if (isMicrophonePresent()) {
             getMicrophonePermission();
         }
-
-
-
+        scanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to ScannerActivity when the scan button is clicked
+                Intent intent = new Intent(MainActivity2.this, ScannerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void btnRecordPressed(View v) {
