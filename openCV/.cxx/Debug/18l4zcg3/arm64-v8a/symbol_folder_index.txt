@@ -1,0 +1,1 @@
+C:\Users\sanji\AndroidStudioProjects\VuzixSpeech_Test\openCV\build\intermediates\cxx\Debug\18l4zcg3\obj\arm64-v8a

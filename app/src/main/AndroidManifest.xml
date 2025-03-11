@@ -6,12 +6,15 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -38,6 +41,9 @@
         </activity>
         <!-- Scanner Activity -->
         <activity android:name=".ScannerActivity" />
+        <activity android:name=".OpenCV_Test" />
+        <activity android:name=".OpenCV_Activity" />
+
     </application>
 
 </manifest>

@@ -1,14 +1,13 @@
 {
   "project_info": {
-    "project_number": "232615652119",
-    "firebase_url": "https://vuzixaudio-default-rtdb.firebaseio.com",
-    "project_id": "vuzixaudio",
-    "storage_bucket": "vuzixaudio.firebasestorage.app"
+    "project_number": "414797080051",
+    "project_id": "vuzixbladeaudio",
+    "storage_bucket": "vuzixbladeaudio.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:232615652119:android:3fb4b499afd5a85bcae552",
+        "mobilesdk_app_id": "1:414797080051:android:151ad8da1e8aecf5b3de86",
         "android_client_info": {
           "package_name": "com.example.vuzixspeech_test"
         }
@@ -16,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDgTxGENqwYd_Z0FPt1Bt7ErrroIW-7rss"
+          "current_key": "AIzaSyAt0w7orvIogSZX4TzU0zd3lP1LcKtG85Q"
         }
       ],
       "services": {

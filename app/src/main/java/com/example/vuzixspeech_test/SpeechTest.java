@@ -22,6 +22,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.content.ContextCompat;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -34,6 +38,9 @@ public class SpeechTest extends AppCompatActivity {
     Intent MSpeechRecognizerIntent;
     TextToSpeech t1;
     Button button6;
+    private DatabaseReference reference;
+    private StorageReference storageReference;
+    private FirebaseDatabase db;
 
     @SuppressLint("MissingInflatedId")
     @Override

@@ -46,7 +46,7 @@ public class MainActivity2 extends AppCompatActivity {
     private StorageReference storageReference;
     private String audioFilePath;
     private TextView textView;
-    private Button scanButton;
+    private Button scanButton, cvButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         textView = findViewById(R.id.textView);
         scanButton = findViewById(R.id.button5);
+        cvButton = findViewById(R.id.button6);
 
         // Initialize Firebase Storage reference
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -69,6 +70,14 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 // Navigate to ScannerActivity when the scan button is clicked
                 Intent intent = new Intent(MainActivity2.this, ScannerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cvButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, OpenCV_Activity.class);
                 startActivity(intent);
             }
         });

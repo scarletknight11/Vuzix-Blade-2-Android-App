@@ -12,12 +12,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class SpeechText extends AppCompatActivity {
 
     private TextView resultText;
+    private DatabaseReference reference;
+    private StorageReference storageReference;
+    private FirebaseDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

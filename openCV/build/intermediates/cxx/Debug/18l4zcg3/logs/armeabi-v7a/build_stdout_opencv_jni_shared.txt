@@ -1,0 +1,2 @@
+ninja: Entering directory `C:\Users\sanji\AndroidStudioProjects\VuzixSpeech_Test\openCV\.cxx\Debug\18l4zcg3\armeabi-v7a'
+ninja: no work to do.
