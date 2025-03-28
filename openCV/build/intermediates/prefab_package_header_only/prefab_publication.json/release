@@ -1,5 +1,5 @@
 {
-  "installationFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixSpeech_Test\\openCV\\build\\intermediates\\prefab_package\\release\\prefab",
+  "installationFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\prefab_package\\release\\prefab",
   "gradlePath": ":openCV",
   "packageInfo": {
     "packageName": "openCV",
@@ -8,7 +8,7 @@
     "modules": [
       {
         "moduleName": "opencv_jni_shared",
-        "moduleHeaders": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixSpeech_Test\\openCV\\native\\jni\\include",
+        "moduleHeaders": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\native\\jni\\include",
         "moduleExportLibraries": [],
         "abis": []
       }

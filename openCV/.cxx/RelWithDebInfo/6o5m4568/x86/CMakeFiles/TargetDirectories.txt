@@ -1,3 +1,0 @@
-C:/Users/sanji/AndroidStudioProjects/VuzixSpeech_Test/openCV/.cxx/RelWithDebInfo/6o5m4568/x86/CMakeFiles/opencv_jni_shared.dir
-C:/Users/sanji/AndroidStudioProjects/VuzixSpeech_Test/openCV/.cxx/RelWithDebInfo/6o5m4568/x86/CMakeFiles/edit_cache.dir
-C:/Users/sanji/AndroidStudioProjects/VuzixSpeech_Test/openCV/.cxx/RelWithDebInfo/6o5m4568/x86/CMakeFiles/rebuild_cache.dir

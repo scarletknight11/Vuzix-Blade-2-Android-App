@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.example.vuzixspeech_test" />
-                  <option name="mobileSdkAppId" value="1:414797080051:android:151ad8da1e8aecf5b3de86" />
-                  <option name="projectId" value="vuzixbladeaudio" />
-                  <option name="projectNumber" value="414797080051" />
+                  <option name="appId" value="com.example.vuzix_blade_elitecad" />
+                  <option name="mobileSdkAppId" value="1:508799726070:android:6f8675dc83aa19bdf697d7" />
+                  <option name="projectId" value="vuzixbladeelitecad" />
+                  <option name="projectNumber" value="508799726070" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

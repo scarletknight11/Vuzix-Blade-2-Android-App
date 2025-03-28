@@ -24,20 +24,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        tools:targetApi="34"
-        android:theme="@style/Theme.VuzixSpeech_Test">
-
-        <!-- Launcher Activity -->
+        android:theme="@style/Theme.VuzixBladeEliteCAD"
+        tools:targetApi="35">
         <activity
             android:name=".MainActivity2"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/Theme.VuzixBladeEliteCAD">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data android:name="com.vuzix.icon.tint" android:value="true" />
         </activity>
         <!-- Scanner Activity -->
         <activity android:name=".ScannerActivity" />

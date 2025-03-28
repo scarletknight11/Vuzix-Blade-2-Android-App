@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "414797080051",
-    "project_id": "vuzixbladeaudio",
-    "storage_bucket": "vuzixbladeaudio.firebasestorage.app"
+    "project_number": "508799726070",
+    "project_id": "vuzixbladeelitecad",
+    "storage_bucket": "vuzixbladeelitecad.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:414797080051:android:151ad8da1e8aecf5b3de86",
+        "mobilesdk_app_id": "1:508799726070:android:6f8675dc83aa19bdf697d7",
         "android_client_info": {
-          "package_name": "com.example.vuzixspeech_test"
+          "package_name": "com.example.vuzix_blade_elitecad"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAt0w7orvIogSZX4TzU0zd3lP1LcKtG85Q"
+          "current_key": "AIzaSyBVR-MfK2_wuYYrrOdGkOjJ5Tu-KUkqJNs"
         }
       ],
       "services": {
