@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "508799726070",
-    "project_id": "vuzixbladeelitecad",
-    "storage_bucket": "vuzixbladeelitecad.firebasestorage.app"
+    "project_number": "1049138806983",
+    "project_id": "speech2textai-c928e",
+    "storage_bucket": "speech2textai-c928e.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:508799726070:android:6f8675dc83aa19bdf697d7",
+        "mobilesdk_app_id": "1:1049138806983:android:2f515e3200879e54267ee2",
         "android_client_info": {
           "package_name": "com.example.vuzix_blade_elitecad"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBVR-MfK2_wuYYrrOdGkOjJ5Tu-KUkqJNs"
+          "current_key": "AIzaSyDfFBjDc3xpkLFuTrslLMkBZb6tyhvCw9U"
         }
       ],
       "services": {

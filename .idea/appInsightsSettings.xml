@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.vuzix_blade_elitecad" />
-                  <option name="mobileSdkAppId" value="1:508799726070:android:6f8675dc83aa19bdf697d7" />
-                  <option name="projectId" value="vuzixbladeelitecad" />
-                  <option name="projectNumber" value="508799726070" />
+                  <option name="mobileSdkAppId" value="1:1049138806983:android:2f515e3200879e54267ee2" />
+                  <option name="projectId" value="speech2textai-c928e" />
+                  <option name="projectNumber" value="1049138806983" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

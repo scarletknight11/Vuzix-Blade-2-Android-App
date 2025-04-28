@@ -1,16 +1,16 @@
 {
   "info": {
-    "name": "x86",
-    "bitness": 32,
+    "name": "arm64-v8a",
+    "bitness": 64,
     "isDefault": true,
     "isDeprecated": false,
-    "architecture": "x86",
-    "triple": "i686-linux-android",
-    "llvmTriple": "i686-none-linux-android"
+    "architecture": "arm64",
+    "triple": "aarch64-linux-android",
+    "llvmTriple": "aarch64-none-linux-android"
   },
-  "cxxBuildFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\.cxx\\Debug\\1q3p5f5u\\x86",
-  "soFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\cxx\\Debug\\1q3p5f5u\\obj\\x86",
-  "soRepublishFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\cmake\\debug\\obj\\x86",
+  "cxxBuildFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\.cxx\\Debug\\1q3p5f5u\\arm64-v8a",
+  "soFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\cxx\\Debug\\1q3p5f5u\\obj\\arm64-v8a",
+  "soRepublishFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a",
   "abiPlatformVersion": 24,
   "cmake": {
     "effectiveConfiguration": {
@@ -27,10 +27,7 @@
     "variantName": "debug",
     "isDebuggableEnabled": true,
     "validAbiList": [
-      "armeabi-v7a",
-      "arm64-v8a",
-      "x86",
-      "x86_64"
+      "arm64-v8a"
     ],
     "buildTargetSet": [
       "opencv_jni_shared"
@@ -159,6 +156,7 @@
         "rootBuildGradleFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD",
         "sdkFolder": "C:\\Users\\sanji\\AppData\\Local\\Android\\Sdk",
         "isBuildOnlyTargetAbiEnabled": true,
+        "ideBuildTargetAbi": "arm64-v8a",
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },
@@ -175,7 +173,7 @@
   "buildSettings": {
     "environmentVariables": []
   },
-  "prefabFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\.cxx\\Debug\\1q3p5f5u\\prefab\\x86",
+  "prefabFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\.cxx\\Debug\\1q3p5f5u\\prefab\\arm64-v8a",
   "isActiveAbi": true,
   "fullConfigurationHash": "1q3p5f5u5s4d5e5e4l323l492g3w132v633l456c1831x1l5g436b1c683b4o6c",
   "fullConfigurationHashKey": "# Values used to calculate the hash in this folder name.\n# Should not depend on the absolute path of the project itself.\n#   - AGP: 8.9.1.\n#   - $NDK is the path to NDK 27.0.12077973.\n#   - $PROJECT is the path to the parent folder of the root Gradle build file.\n#   - $ABI is the ABI to be built with. The specific value doesn\u0027t contribute to the value of the hash.\n#   - $HASH is the hash value computed from this text.\n#   - $CMAKE is the path to CMake 3.22.1.\n#   - $NINJA is the path to Ninja.\n-H$PROJECT/openCV/libcxx_helper\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d24\n-DANDROID_PLATFORM\u003dandroid-24\n-DANDROID_ABI\u003d$ABI\n-DCMAKE_ANDROID_ARCH_ABI\u003d$ABI\n-DANDROID_NDK\u003d$NDK\n-DCMAKE_ANDROID_NDK\u003d$NDK\n-DCMAKE_TOOLCHAIN_FILE\u003d$NDK/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d$NINJA\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d$PROJECT/openCV/build/intermediates/cxx/Debug/$HASH/obj/$ABI\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d$PROJECT/openCV/build/intermediates/cxx/Debug/$HASH/obj/$ABI\n-DCMAKE_BUILD_TYPE\u003dDebug\n-B$PROJECT/openCV/.cxx/Debug/$HASH/$ABI\n-GNinja\n-DANDROID_STL\u003dc++_shared",
@@ -185,19 +183,19 @@
     "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
     "-DCMAKE_SYSTEM_VERSION\u003d24",
     "-DANDROID_PLATFORM\u003dandroid-24",
-    "-DANDROID_ABI\u003dx86",
-    "-DCMAKE_ANDROID_ARCH_ABI\u003dx86",
+    "-DANDROID_ABI\u003darm64-v8a",
+    "-DCMAKE_ANDROID_ARCH_ABI\u003darm64-v8a",
     "-DANDROID_NDK\u003dC:\\Users\\sanji\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973",
     "-DCMAKE_ANDROID_NDK\u003dC:\\Users\\sanji\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973",
     "-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\sanji\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973\\build\\cmake\\android.toolchain.cmake",
     "-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\sanji\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
-    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\cxx\\Debug\\1q3p5f5u\\obj\\x86",
-    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\cxx\\Debug\\1q3p5f5u\\obj\\x86",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\cxx\\Debug\\1q3p5f5u\\obj\\arm64-v8a",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\cxx\\Debug\\1q3p5f5u\\obj\\arm64-v8a",
     "-DCMAKE_BUILD_TYPE\u003dDebug",
-    "-BC:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\.cxx\\Debug\\1q3p5f5u\\x86",
+    "-BC:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\.cxx\\Debug\\1q3p5f5u\\arm64-v8a",
     "-GNinja",
     "-DANDROID_STL\u003dc++_shared"
   ],
-  "stlLibraryFile": "C:\\Users\\sanji\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+  "stlLibraryFile": "C:\\Users\\sanji\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
   "intermediatesParentFolder": "C:\\Users\\sanji\\AndroidStudioProjects\\VuzixBladeEliteCAD\\openCV\\build\\intermediates\\cxx\\Debug\\1q3p5f5u"
 }

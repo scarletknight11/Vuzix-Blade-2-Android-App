@@ -61,6 +61,7 @@ public class SpeechText extends AppCompatActivity {
             case 100: if (result_code == RESULT_OK && i != null) {
                 ArrayList<String> result = i.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                 resultText.setText(result.get(0));
+
             }
                 break;
         }

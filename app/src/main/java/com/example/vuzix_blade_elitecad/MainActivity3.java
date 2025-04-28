@@ -13,6 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vuzix_blade_elitecad.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -21,6 +24,9 @@ public class MainActivity3 extends AppCompatActivity {
     protected static final int RESULT_SPEECH = 1;
     private ImageButton btnSpeak;
     private TextView tvText;
+    private DatabaseReference reference;
+    private StorageReference storageReference;
+    private FirebaseDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,9 @@ public class MainActivity3 extends AppCompatActivity {
                 if(resultCode == RESULT_OK && data != null){
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     tvText.setText(text.get(0));
+                    db = FirebaseDatabase.getInstance();
+                    reference = db.getReference("Records");
+                    reference.push().setValue(text);
                 }
                 break;
         }
