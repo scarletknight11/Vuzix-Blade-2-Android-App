@@ -127,7 +127,7 @@ public class MainActivity2 extends AppCompatActivity {
         try {
             db = FirebaseDatabase.getInstance();
             reference = db.getReference("Records");
-            reference.push().setValue(audioFilePath);
+            reference.push().setValue(mediaPlayer);
         } catch (Exception e) {
             e.printStackTrace();
         }

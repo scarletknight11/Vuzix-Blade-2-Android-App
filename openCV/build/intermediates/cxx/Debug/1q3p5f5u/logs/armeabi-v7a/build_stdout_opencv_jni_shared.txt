@@ -1,0 +1,2 @@
+ninja: Entering directory `C:\Users\sanji\AndroidStudioProjects\VuzixBladeEliteCAD\openCV\.cxx\Debug\1q3p5f5u\armeabi-v7a'
+ninja: no work to do.

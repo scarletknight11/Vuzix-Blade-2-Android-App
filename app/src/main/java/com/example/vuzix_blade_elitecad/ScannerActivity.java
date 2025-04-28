@@ -27,7 +27,6 @@ public class ScannerActivity extends AppCompatActivity {
     private FirebaseDatabase db;
 
 
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
