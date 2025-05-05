@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -37,7 +38,7 @@ import java.io.IOException;
 public class MainActivity2 extends AppCompatActivity {
 
     private static final int MICROPHONE_PERMISSION_CODE = 200;
-    private static final String TRANSCRIPTION_API_URL = "https://vuzixaudio-default-rtdb.firebaseio.com/"; // Replace with your transcription API URL
+    private static final String TRANSCRIPTION_API_URL = "https://speech2textai-c928e-default-rtdb.firebaseio.com/"; // Replace with your transcription API URL
     private MediaRecorder mediaRecorder;
     private MediaPlayer mediaPlayer;
     private FirebaseDatabase db;
@@ -87,9 +88,9 @@ public class MainActivity2 extends AppCompatActivity {
         try {
             mediaRecorder = new MediaRecorder();
             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
             mediaRecorder.setOutputFile(audioFilePath);
-            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
             mediaRecorder.prepare();
             mediaRecorder.start();
             Toast.makeText(this, "Recording started", Toast.LENGTH_LONG).show();
@@ -107,6 +108,9 @@ public class MainActivity2 extends AppCompatActivity {
 
             // Transcribe the audio
             transcribeAudio();
+
+            // Upload to Firebase Storage
+            uploadAudioToFirebase();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -127,7 +131,7 @@ public class MainActivity2 extends AppCompatActivity {
         try {
             db = FirebaseDatabase.getInstance();
             reference = db.getReference("Records");
-            reference.push().setValue(mediaPlayer);
+            reference.push().setValue(audioFilePath);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -148,7 +152,7 @@ public class MainActivity2 extends AppCompatActivity {
     private String getRecordingFilePath() {
         ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
         File musicDirectory = contextWrapper.getExternalFilesDir(Environment.DIRECTORY_MUSIC);
-        File file = new File(musicDirectory, "testRecordingFile" + ".mp3");
+        File file = new File(musicDirectory, "testRecordingFile.m4a");
         return file.getPath();
     }
 
@@ -185,5 +189,48 @@ public class MainActivity2 extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void uploadAudioToFirebase() {
+        File audioFile = new File(audioFilePath);
+        if (!audioFile.exists()) {
+            Toast.makeText(this, "Audio file does not exist", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Use a .mp3 file with unique name
+        String fileName = "recording_" + System.currentTimeMillis() + ".m4a";
+        Uri fileUri = Uri.fromFile(audioFile);
+        StorageReference audioRef = storageReference.child("recordings/" + fileName);
+
+        // Upload with correct content type
+        audioRef.putFile(fileUri)
+                .addOnSuccessListener(taskSnapshot -> {
+                    audioRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                        String downloadUrl = uri.toString();
+
+                        // Optional: save URL to Realtime DB
+                        DatabaseReference dbRef = FirebaseDatabase.getInstance()
+                                .getReference("AudioFiles");
+                        dbRef.push().setValue(downloadUrl);
+
+                        // Play the file from Firebase
+                        MediaPlayer player = new MediaPlayer();
+                        try {
+                            player.setDataSource(downloadUrl);
+                            player.prepare();
+                            player.start();
+                            Toast.makeText(MainActivity2.this, "Audio uploaded and playing from Firebase", Toast.LENGTH_LONG).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            Toast.makeText(MainActivity2.this, "Failed to play uploaded audio", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }).addOnFailureListener(e ->
+                            Toast.makeText(MainActivity2.this, "Failed to get download URL", Toast.LENGTH_SHORT).show());
+
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(MainActivity2.this, "Failed to upload audio", Toast.LENGTH_SHORT).show());
     }
 }

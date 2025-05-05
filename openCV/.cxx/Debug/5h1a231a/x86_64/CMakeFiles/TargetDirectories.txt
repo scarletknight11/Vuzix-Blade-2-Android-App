@@ -1,0 +1,3 @@
+C:/Users/sanji/OneDrive/Documents/Vuzix-Blade-2-Android-App-main/openCV/.cxx/Debug/5h1a231a/x86_64/CMakeFiles/opencv_jni_shared.dir
+C:/Users/sanji/OneDrive/Documents/Vuzix-Blade-2-Android-App-main/openCV/.cxx/Debug/5h1a231a/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/sanji/OneDrive/Documents/Vuzix-Blade-2-Android-App-main/openCV/.cxx/Debug/5h1a231a/x86_64/CMakeFiles/rebuild_cache.dir

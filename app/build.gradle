@@ -1,9 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    //alias(libs.plugins.google.gms.google.services)
     id 'com.google.gms.google-services'
-
 }
 
 android {
@@ -36,22 +34,15 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-//    buildFeatures {
-//        compose false
-//  }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.5.1'
-    }
     packaging {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
 }
 
 dependencies {
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.12.0'
@@ -70,28 +61,17 @@ dependencies {
     implementation 'com.vuzix:sdk-speechrecognitionservice:master-SNAPSHOT'
     implementation 'com.vuzix:sdk-barcode:1.72'
     implementation 'com.github.yuriy-budiyev:code-scanner:2.3.0'
-    implementation 'com.google.gms:google-services:4.4.2' // Ensure correct version
     implementation platform('com.google.firebase:firebase-bom:33.11.0')
     implementation 'com.google.firebase:firebase-storage:21.0.1'
-    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
     implementation 'com.google.zxing:core:3.5.3'
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
     implementation 'com.google.mlkit:object-detection:17.0.2'
-    // Import the BoM for the Firebase platform
-    implementation(platform('com.google.firebase:firebase-bom:33.11.0'))
-    // Add the dependency for the Firebase ML model downloader library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation("com.google.firebase:firebase-ml-modeldownloader")
-    // Also add the dependency for the TensorFlow Lite library and specify its version
-    //implementation('org.tensorflow:tensorflow-lite:2.17.0')
-
-    // This include all libraries of tensorflow from text to vision
-    // Then click on sync
+    implementation 'com.google.firebase:firebase-ml-modeldownloader'
     implementation 'com.google.firebase:firebase-ml-model-interpreter:22.0.4'
     implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1'
     implementation 'org.tensorflow:tensorflow-lite-gpu:2.2.0'
     implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
     implementation 'org.tensorflow:tensorflow-lite-task-vision:0.1.0'
     implementation 'org.tensorflow:tensorflow-lite-task-text:0.1.0'
-
+    implementation 'com.assemblyai:assemblyai-java:4.0.1'
 }
